@@ -31,7 +31,11 @@ docker build -t frontend-test .
 
 ### 2. Run the Container
 ```bash
-docker run -p 4200:4200 frontend-test
+docker run -it --rm \
+  -p 4200:4200 \
+  -v "$(pwd)":/usr/src/app \
+  -v /usr/src/app/node_modules \
+  frontend-test
 ```
 
 Once running, access your application at:
